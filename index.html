@@ -18,7 +18,6 @@
 
   <style>
 
-
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
@@ -69,8 +68,6 @@
       font-size: 48px;
     }
 
-
-
 /* Style pour le survol */
 .icon-hover {
   color: #1e52a8; /* Couleur bleue */
@@ -95,7 +92,6 @@
   transition: background-color 0.3s;
 }
 
-
 .social-icon:hover:before {
   background-color: white; /* Couleur du cercle blanc au survol */
 }
@@ -105,7 +101,58 @@
   z-index: 1;
 }
 
+/* Style de base pour le texte */
+.text-highlight {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  color: #FFFFFF; /* Couleur initiale du texte */
+  transition: color 0.3s;
+}
 
+/* Ajoute du fond blanc au survol */
+.text-highlight::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF; /* Fond blanc */
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: transform 0.3s;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.text-highlight:hover::before {
+  transform: scaleX(1);
+}
+
+/* Change la couleur du texte en bleu au survol */
+.text-highlight:hover {
+  color: #1e52a8; /* Couleur bleue */
+}
+
+
+
+#credit-logo {
+  position: fixed; /* Garde l'élément en bas de la page */
+  bottom: 0; /* Ajuste pour coller au bas */
+  width: 100%; /* Assure une largeur complète */
+  text-align: center; /* Centre le texte */
+  z-index: 10; /* S'assure qu'il reste au-dessus des particules */
+  color: white; /* Couleur du texte */
+  font-size: 11px; /* Taille du texte */
+}
+
+#credit-logo p {
+  margin: 0; /* Élimine la marge par défaut des paragraphes */
+  padding: 5px; /* Un peu d'espace autour du texte */
+  background-color: #1e52a8; /* Fond semi-transparent pour la lisibilité */
+  display: inline-block; /* Permet au fond de s'adapter au texte */
+  border-radius: 5px; /* Bordures arrondies pour l'esthétique */
+}
 
     
   </style>
@@ -119,8 +166,8 @@
 
   <!-- Ismail Ben Abdelkader section -->
   <div id="social-icons">
-    <h1>Ismail Ben Abdelkader</h1>
-    <p>Technologies for Business</p>
+    <h1 class="text-highlight">Ismail Ben Abdelkader</h1>
+    <p class="text-highlight">Technologies for Business</p>
     <!-- Social icons row -->
     <div class="social-icons-row">
 
@@ -158,7 +205,8 @@
     </div>
   </div>
 
-
+<div id="credit-logo">
+  <p>© Copyright 2024, Ismail</p>
   
   <!-- scripts -->
   <script src="particles.js"></script>
