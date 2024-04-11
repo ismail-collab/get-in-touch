@@ -18,7 +18,7 @@
 
   <style>
 
-    body {
+       body {
       margin: 0;
       font-family: 'Arial', sans-serif;
       overflow: hidden;
@@ -65,7 +65,7 @@
     }
 
     #social-icons .social-icon i {
-      font-size: 48px;
+      font-size: 72px;
     }
 
 /* Style pour le survol */
@@ -77,19 +77,26 @@
 .social-icon {
   position: relative;
   display: inline-block;
+  cursor: pointer; /* Ajoute un indicateur visuel de pointage */
 }
 
 .social-icon:before {
   content: '';
   position: absolute;
-  top: 50%;
+  top: 46%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80px; /* Ajustez la largeur du cercle selon vos besoins */
-  height: 80px; /* Ajustez la hauteur du cercle selon vos besoins */
+  width: 100px; /* Ajustez la taille du cercle */
+  height: 100px; /* Ajustez la taille du cercle */
   background-color: transparent;
   border-radius: 50%;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s; /* Ajoutez la transition pour un effet fluide */
+  z-index: -1; /* Assurez-vous que le cercle soit en arrière-plan par rapport à l'icône */
+}
+
+.social-icon:hover:before {
+  background-color: white;
+  transform: translate(-50%, -50%) scale(1.2); /* Ajustez la taille du cercle au survol */
 }
 
 .social-icon:hover:before {
@@ -108,6 +115,8 @@
   position: relative;
   color: #FFFFFF; /* Couleur initiale du texte */
   transition: color 0.3s;
+  white-space: nowrap; /* Empêche le retour à la ligne */
+
 }
 
 /* Ajoute du fond blanc au survol */
@@ -146,6 +155,7 @@
   font-size: 11px; /* Taille du texte */
 }
 
+
 #credit-logo p {
   margin: 0; /* Élimine la marge par défaut des paragraphes */
   padding: 5px; /* Un peu d'espace autour du texte */
@@ -181,7 +191,6 @@
   z-index: 1000; /* Assurez-vous qu'il soit au-dessus des autres éléments */
 }
 
-    
   </style>
 </head>
 
