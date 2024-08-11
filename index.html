@@ -12,13 +12,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-Ez+jrB/pz5P4PiVzb+iXW8txM5L7E8hsdWWTWoiC+thBtWQUxRN4yV6J4MZNC0UZ" crossorigin="anonymous">
   <!-- Inclure la bibliothèque IcoFont -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icofont/3.0.0/icofont.min.css">
-<!-- Ajoutez les liens vers Bootstrap CSS et Font Awesome icons -->
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- Ajoutez les liens vers Bootstrap CSS et Font Awesome icons -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
   <style>
 
-       body {
+    body {
       margin: 0;
       font-family: 'Arial', sans-serif;
       overflow: hidden;
@@ -68,145 +68,194 @@
       font-size: 72px;
     }
 
-/* Style pour le survol */
-.icon-hover {
-  color: #1e52a8; /* Couleur bleue */
-}
+    /* Style pour le survol */
+    .icon-hover {
+      color: #1e52a8; /* Couleur bleue */
+    }
 
-/* Style pour le cercle blanc */
-.social-icon {
-  position: relative;
-  display: inline-block;
-  cursor: pointer; /* Ajoute un indicateur visuel de pointage */
-}
+    /* Style pour le cercle blanc */
+    .social-icon {
+      position: relative;
+      display: inline-block;
+      cursor: pointer; /* Ajoute un indicateur visuel de pointage */
+    }
 
-.social-icon:before {
-  content: '';
-  position: absolute;
-  top: 46%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100px; /* Ajustez la taille du cercle */
-  height: 100px; /* Ajustez la taille du cercle */
-  background-color: transparent;
-  border-radius: 50%;
-  transition: background-color 0.3s, transform 0.3s; /* Ajoutez la transition pour un effet fluide */
-  z-index: -1; /* Assurez-vous que le cercle soit en arrière-plan par rapport à l'icône */
-}
+    .social-icon:before {
+      content: '';
+      position: absolute;
+      top: 46%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px; /* Ajustez la taille du cercle */
+      height: 100px; /* Ajustez la taille du cercle */
+      background-color: transparent;
+      border-radius: 50%;
+      transition: background-color 0.3s, transform 0.3s; /* Ajoutez la transition pour un effet fluide */
+      z-index: -1; /* Assurez-vous que le cercle soit en arrière-plan par rapport à l'icône */
+    }
 
-.social-icon:hover:before {
-  background-color: white;
-  transform: translate(-50%, -50%) scale(1.2); /* Ajustez la taille du cercle au survol */
-}
+    .social-icon:hover:before {
+      background-color: white;
+      transform: translate(-50%, -50%) scale(1.2); /* Ajustez la taille du cercle au survol */
+    }
 
-.social-icon:hover:before {
-  background-color: white; /* Couleur du cercle blanc au survol */
-}
+    .social-icon:hover:before {
+      background-color: white; /* Couleur du cercle blanc au survol */
+    }
 
-.social-icon i {
-  position: relative;
-  z-index: 1;
-}
+    .social-icon i {
+      position: relative;
+      z-index: 1;
+    }
 
-/* Style de base pour le texte */
-.text-highlight {
-  display: inline-block;
-  cursor: pointer;
-  position: relative;
-  color: #FFFFFF; /* Couleur initiale du texte */
-  transition: color 0.3s;
-  white-space: nowrap; /* Empêche le retour à la ligne */
+    /* Style de base pour le texte */
+    .text-highlight {
+      display: inline-block;
+      cursor: pointer;
+      position: relative;
+      color: #FFFFFF; /* Couleur initiale du texte */
+      transition: color 0.3s;
+      white-space: nowrap; /* Empêche le retour à la ligne */
+    }
 
-}
+    /* Ajoute du fond blanc au survol */
+    .text-highlight::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #FFFFFF; /* Fond blanc */
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: transform 0.3s;
+      transform-origin: left;
+      transform: scaleX(0);
+    }
 
-/* Ajoute du fond blanc au survol */
-.text-highlight::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #FFFFFF; /* Fond blanc */
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: transform 0.3s;
-  transform-origin: left;
-  transform: scaleX(0);
-}
+    .text-highlight:hover::before {
+      transform: scaleX(1);
+    }
 
-.text-highlight:hover::before {
-  transform: scaleX(1);
-}
+    /* Change la couleur du texte en bleu au survol */
+    .text-highlight:hover {
+      color: #1e52a8; /* Couleur bleue */
+    }
 
-/* Change la couleur du texte en bleu au survol */
-.text-highlight:hover {
-  color: #1e52a8; /* Couleur bleue */
-}
+    #credit-logo {
+      position: fixed; /* Garde l'élément en bas de la page */
+      bottom: 0; /* Ajuste pour coller au bas */
+      width: 100%; /* Assure une largeur complète */
+      text-align: center; /* Centre le texte */
+      z-index: 10; /* S'assure qu'il reste au-dessus des particules */
+      color: white; /* Couleur du texte */
+      font-size: 11px; /* Taille du texte */
+    }
 
+    #credit-logo p {
+      margin: 0; /* Élimine la marge par défaut des paragraphes */
+      padding: 5px; /* Un peu d'espace autour du texte */
+      display: inline-block; /* Permet au fond de s'adapter au texte */
+      border-radius: 5px; /* Bordures arrondies pour l'esthétique */
+    }
 
+    .social-icon:hover:before {
+      background-color: white; /* Changez cette valeur si nécessaire */
+    }
 
-#credit-logo {
-  position: fixed; /* Garde l'élément en bas de la page */
-  bottom: 0; /* Ajuste pour coller au bas */
-  width: 100%; /* Assure une largeur complète */
-  text-align: center; /* Centre le texte */
-  z-index: 10; /* S'assure qu'il reste au-dessus des particules */
-  color: white; /* Couleur du texte */
-  font-size: 11px; /* Taille du texte */
-}
+    .social-icon:hover i {
+      color: #1e52a8; /* Changez la couleur de l'icône au survol */
+    }
 
+    .text-highlight {
+      padding: 0 10px; /* Ajustez la valeur de l'espacement selon vos besoins */
+    }
 
-#credit-logo p {
-  margin: 0; /* Élimine la marge par défaut des paragraphes */
-  padding: 5px; /* Un peu d'espace autour du texte */
-  display: inline-block; /* Permet au fond de s'adapter au texte */
-  border-radius: 5px; /* Bordures arrondies pour l'esthétique */
-}
+    .theme-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      padding: 10px;
+      background-color: #fff;
+      color: #000;
+      border-radius: 5px;
+      z-index: 1000; /* Assurez-vous qu'il soit au-dessus des autres éléments */
+    }
 
+    /* Media Queries pour rendre la page responsive */
+    @media (max-width: 768px) {
+      #social-icons {
+        font-size: 32px;
+        padding: 20px;
+      }
 
-.social-icon:hover:before {
-  background-color: white; /* Changez cette valeur si nécessaire */
-}
+      #social-icons h1 {
+        font-size: 48px;
+      }
 
-.social-icon:hover i {
-  color: #1e52a8; /* Changez la couleur de l'icône au survol */
-}
+      #social-icons p {
+        font-size: 24px;
+      }
 
+      #social-icons a {
+        font-size: 24px;
+        margin: 0 10px;
+      }
 
-.text-highlight {
-  padding: 0 10px; /* Ajustez la valeur de l'espacement selon vos besoins */
-}
+      #social-icons .social-icon i {
+        font-size: 48px;
+      }
 
+      #social-icons .social-icon:before {
+        width: 70px;
+        height: 70px;
+      }
+    }
 
+    @media (max-width: 480px) {
+      #social-icons {
+        font-size: 24px;
+        padding: 10px;
+      }
 
-.theme-switcher {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  padding: 10px;
-  background-color: #fff;
-  color: #000;
-  border-radius: 5px;
-  z-index: 1000; /* Assurez-vous qu'il soit au-dessus des autres éléments */
-}
+      #social-icons h1 {
+        font-size: 36px;
+      }
+
+      #social-icons p {
+        font-size: 18px;
+      }
+
+      #social-icons a {
+        font-size: 18px;
+        margin: 0 5px;
+      }
+
+      #social-icons .social-icon i {
+        font-size: 36px;
+      }
+
+      #social-icons .social-icon:before {
+        width: 50px;
+        height: 50px;
+      }
+    }
 
   </style>
 </head>
 
 <body>
 
-
   <!-- particles.js container -->
   <div id="particles-js"></div>
 
   <!-- Bouton de changement de thème -->
-<!-- Sélecteur de couleur -->
-<div id="color-picker-container" style="position: fixed; top: 20px; left: 20px; z-index: 1000;">
-  <input type="color" id="color-picker" value="#1e52a8">
-</div>
+  <!-- Sélecteur de couleur -->
+  <div id="color-picker-container" style="position: fixed; top: 20px; left: 20px; z-index: 1000;">
+    <input type="color" id="color-picker" value="#1e52a8">
+  </div>
 
-  
   <!-- Ismail Ben Abdelkader section -->
   <div id="social-icons">
     <h1 class="text-highlight">&#8203;&#8203;Ismail Ben Abdelkader&#8203;</h1> <br>
@@ -214,99 +263,93 @@
     <!-- Social icons row -->
     <div class="social-icons-row">
 
-
-
-<!-- LinkedIn icon -->
-<div class="social-icon">
-  <a href="https://www.linkedin.com/in/ismail-ben-abdelkader/" target="_blank" class="icon-link" id="linkedin-icon">
-    <i class="fab fa-linkedin"></i>
-  </a>
-</div>
-<!-- GitHub icon -->
-<div class="social-icon">
-  <a href="https://github.com/ismail-collab" target="_blank" class="icon-link" id="github-icon">
-    <i class="fab fa-github"></i>
-  </a>
-</div>
-<!-- Email icon -->
-<div class="social-icon">
-  <a href="mailto:ismail.abkader@gmail.com" class="icon-link" id="email-icon">
-    <i class="fab fa-google"></i>
-  </a>
-</div>
-<!-- CV icon -->
-<div class="social-icon">
-  <a href="https://drive.google.com/file/d/1gay37yLENI9FgY8quffyafZ_K3D3Dou4/view?usp=sharing" target="_blank" class="icon-link" id="cv-icon">
-    <i class="fab fa-google-drive"></i>
-  </a>
-</div>
-
-
-
-
+      <!-- LinkedIn icon -->
+      <div class="social-icon">
+        <a href="https://www.linkedin.com/in/ismail-ben-abdelkader/" target="_blank" class="icon-link" id="linkedin-icon">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+      <!-- GitHub icon -->
+      <div class="social-icon">
+        <a href="https://github.com/ismail-collab" target="_blank" class="icon-link" id="github-icon">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <!-- Email icon -->
+      <div class="social-icon">
+        <a href="mailto:ismail.abkader@gmail.com" class="icon-link" id="email-icon">
+          <i class="fab fa-google"></i>
+        </a>
+      </div>
+      <!-- CV icon -->
+      <div class="social-icon">
+        <a href="https://drive.google.com/file/d/1gay37yLENI9FgY8quffyafZ_K3D3Dou4/view?usp=sharing" target="_blank" class="icon-link" id="cv-icon">
+          <i class="fab fa-google-drive"></i>
+        </a>
+      </div>
 
     </div>
   </div>
 
-<div id="credit-logo">
-  <p>© Copyright 2024, Ismail</p>
-</div>
+  <div id="credit-logo">
+    <p>© Copyright 2024, Ismail</p>
+  </div>
   <!-- scripts -->
   <script src="particles.js"></script>
   <script src="js/app.js"></script>
 
-<script>
-  // LinkedIn icon
-document.getElementById("linkedin-icon").addEventListener("mouseover", function() {
-  this.querySelector("i").classList.add("icon-hover");
-});
-document.getElementById("linkedin-icon").addEventListener("mouseout", function() {
-  this.querySelector("i").classList.remove("icon-hover");
-});
+  <script>
+    // LinkedIn icon
+    document.getElementById("linkedin-icon").addEventListener("mouseover", function() {
+      this.querySelector("i").classList.add("icon-hover");
+    });
+    document.getElementById("linkedin-icon").addEventListener("mouseout", function() {
+      this.querySelector("i").classList.remove("icon-hover");
+    });
 
-// GitHub icon
-document.getElementById("github-icon").addEventListener("mouseover", function() {
-  this.querySelector("i").classList.add("icon-hover");
-});
-document.getElementById("github-icon").addEventListener("mouseout", function() {
-  this.querySelector("i").classList.remove("icon-hover");
-});
+    // GitHub icon
+    document.getElementById("github-icon").addEventListener("mouseover", function() {
+      this.querySelector("i").classList.add("icon-hover");
+    });
+    document.getElementById("github-icon").addEventListener("mouseout", function() {
+      this.querySelector("i").classList.remove("icon-hover");
+    });
 
-// Email icon
-document.getElementById("email-icon").addEventListener("mouseover", function() {
-  this.querySelector("i").classList.add("icon-hover");
-});
-document.getElementById("email-icon").addEventListener("mouseout", function() {
-  this.querySelector("i").classList.remove("icon-hover");
-});
+    // Email icon
+    document.getElementById("email-icon").addEventListener("mouseover", function() {
+      this.querySelector("i").classList.add("icon-hover");
+    });
+    document.getElementById("email-icon").addEventListener("mouseout", function() {
+      this.querySelector("i").classList.remove("icon-hover");
+    });
 
-// CV icon
-document.getElementById("cv-icon").addEventListener("mouseover", function() {
-  this.querySelector("i").classList.add("icon-hover");
-});
-document.getElementById("cv-icon").addEventListener("mouseout", function() {
-  this.querySelector("i").classList.remove("icon-hover");
-});
+    // CV icon
+    document.getElementById("cv-icon").addEventListener("mouseover", function() {
+      this.querySelector("i").classList.add("icon-hover");
+    });
+    document.getElementById("cv-icon").addEventListener("mouseout", function() {
+      this.querySelector("i").classList.remove("icon-hover");
+    });
 
-</script>
+  </script>
 
-<script>
-  document.getElementById('color-picker').addEventListener('input', function() {
+  <script>
+    document.getElementById('color-picker').addEventListener('input', function() {
       var chosenColor = this.value;
-  
+
       // Appliquer la couleur de fond choisie pour 'particles-js' et la partie "credit"
       document.getElementById('particles-js').style.backgroundColor = chosenColor;
       document.querySelector('#credit-logo p').style.backgroundColor = chosenColor;
-  
+
       // Mettre à jour ou créer le style pour les effets de survol
       var hoverStyleId = 'dynamic-hover-styles';
       var hoverStyles = document.getElementById(hoverStyleId);
       if (!hoverStyles) {
-          hoverStyles = document.createElement('style');
-          hoverStyles.id = hoverStyleId;
-          document.head.appendChild(hoverStyles);
+        hoverStyles = document.createElement('style');
+        hoverStyles.id = hoverStyleId;
+        document.head.appendChild(hoverStyles);
       }
-  
+
       // Mise à jour des styles pour le survol des icônes sociales, la couleur du texte et la partie "credit"
       hoverStyles.innerHTML = `
         .social-icon:hover i { color: ${chosenColor} !important; }
@@ -315,9 +358,8 @@ document.getElementById("cv-icon").addEventListener("mouseout", function() {
         .social-icon i, .text-highlight, #credit-logo p { color: #FFFFFF; } /* Assure que la couleur initiale est blanche */
         #credit-logo p { border: 2px solid ${chosenColor} !important; }
       `;
-  });
+    });
   </script>
-  
 
 </body>
 
