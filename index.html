@@ -281,6 +281,107 @@
       }
     }
 
+
+
+/* Style général du bouton */
+.support-button {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: #fff;
+  border: 4px solid #ff6e6e;
+  border-radius: 35px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #444;
+  font-family: monospace;
+  text-decoration: none;
+  box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  word-spacing: -2px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+/* Style général du bouton */
+.support-button {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 3px solid white; /* Bordure blanche permanente */
+  background-color: inherit; /* Le fond du bouton prend la couleur du background */
+  box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  overflow: hidden;
+  z-index: 1000;
+  text-decoration: none;
+}
+
+/* Cœur toujours blanc */
+.support-button svg {
+  fill: white !important; /* Force la couleur blanche */
+  width: 28px;
+  height: 28px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Effet au survol */
+.support-button:hover {
+  transform: scale(1.1);
+}
+
+.support-button:hover svg {
+  animation: beatingHeart 1.2s infinite;
+}
+
+/* Animation de battement du cœur */
+@keyframes beatingHeart {
+  0% { transform: scale(1); }
+  15% { transform: scale(1.2); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.2); }
+  60% { transform: scale(1); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .support-button {
+    width: 50px;
+    height: 50px;
+  }
+  .support-button svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .support-button {
+    width: 45px;
+    height: 45px;
+  }
+  .support-button svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+
+
+
+
+    
+
   </style>
 </head>
 
@@ -297,10 +398,15 @@
 
 
 
-<!-- "Buy Me a Coffee" Button -->
-<a href="https://donate.stripe.com/cN27ticV78CBgmYeUV" target="_blank" class="coffee-button">
-  ☕
+<!-- Support Button with Animated Heart -->
+<a href="https://donate.stripe.com/cN27ticV78CBgmYeUV" target="_blank" class="support-button">
+  <svg height="32" width="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0H24V24H0z" fill="none"></path>
+    <path d="M16.5 3C19.538 3 22 5.5 22 9c0 7-7.5 11-10 12.5C9.5 20 2 16 2 9c0-3.5 2.5-6 5.5-6C9.36 3 11 4 12 5c1-1 2.64-2 4.5-2z"></path>
+  </svg>
 </a>
+
+
 
   <!-- Ismail Ben Abdelkader section -->
   <div id="social-icons">
@@ -327,12 +433,13 @@
           <i class="fab fa-google"></i>
         </a>
       </div>
-      <!-- CV icon -->
-      <div class="social-icon">
-        <a href="https://ismail-collab.github.io/get-in-touch/" target="_blank" class="icon-link" id="cv-icon">
-          <i class="fab fa-google-drive"></i>
-        </a>
-      </div>
+<!-- Service Card icon -->
+<div class="social-icon">
+  <a href="https://popl.co/card/QWHwoxaR/1/s" target="_blank" class="icon-link" id="service-card-icon">
+    <i class="fas fa-id-card"></i>
+  </a>
+</div>
+
 
     </div>
   </div>
@@ -380,6 +487,28 @@
   </script>
 
   <script>
+
+
+document.getElementById('color-picker').addEventListener('input', function() {
+    var chosenColor = this.value;
+
+    // Appliquer la couleur de fond choisie pour la page
+    document.getElementById('particles-js').style.backgroundColor = chosenColor;
+    document.querySelector('#credit-logo p').style.backgroundColor = chosenColor;
+
+    // Appliquer la même couleur au fond du bouton
+    document.querySelector('.support-button').style.backgroundColor = chosenColor;
+});
+
+// Initialiser la couleur de fond du bouton au chargement de la page
+window.addEventListener('load', function() {
+    let bgColor = window.getComputedStyle(document.getElementById('particles-js')).backgroundColor;
+    document.querySelector('.support-button').style.backgroundColor = bgColor;
+});
+
+
+
+
     document.getElementById('color-picker').addEventListener('input', function() {
       var chosenColor = this.value;
 
