@@ -316,6 +316,32 @@
 }
 
 
+
+.book-meeting-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 12px 20px;
+      border: 2px solid white;
+      background-color: transparent; /* Transparent background */
+      color: white; /* Text remains white */
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      z-index: 1000;
+    }
+
+    .book-meeting-button:hover {
+      transform: scale(1.1); /* Simple scale effect on hover */
+    }
+
+    .book-meeting-button,
+.book-meeting-button:hover {
+  color: white !important;  /* Le texte reste toujours blanc */
+}
+
   </style>
 </head>
 
@@ -330,6 +356,7 @@
     <input type="color" id="color-picker" value="#1e52a8">
   </div>
 
+  <a href="https://calendly.com/benabdelkaderismail123/30min" target="_blank" class="book-meeting-button">Book a Meeting</a>
 
 
 <!-- Support Button with Animated Heart -->
@@ -339,8 +366,6 @@
     <path d="M16.5 3C19.538 3 22 5.5 22 9c0 7-7.5 11-10 12.5C9.5 20 2 16 2 9c0-3.5 2.5-6 5.5-6C9.36 3 11 4 12 5c1-1 2.64-2 4.5-2z"></path>
   </svg>
 </a>
-
-
 
   <!-- Ismail Ben Abdelkader section -->
   <div id="social-icons">
@@ -441,8 +466,6 @@ window.addEventListener('load', function() {
 });
 
 
-
-
     document.getElementById('color-picker').addEventListener('input', function() {
       var chosenColor = this.value;
 
@@ -471,10 +494,10 @@ window.addEventListener('load', function() {
   </script>
 
 
-
   <!-- Tidio Chat Script -->
   <script src="//code.tidio.co/7hp2aasuwzikgjuzl4mkxygwuzrfmfym.js" async></script>
 
+  
 </body>
 
 </html>
