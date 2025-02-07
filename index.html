@@ -316,31 +316,77 @@
 }
 
 
+.text-highlight {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    color: #FFFFFF; /* Couleur initiale du texte */
+    transition: color 0.3s;
+    white-space: nowrap; /* Empêche le retour à la ligne */
+  }
 
-.book-meeting-button {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 12px 20px;
-      border: 2px solid white;
-      background-color: transparent; /* Transparent background */
-      color: white; /* Text remains white */
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-      z-index: 1000;
-    }
+  .dynamic-text-container {
+    font-size: 45px;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    height: 50px;
+  }
 
-    .book-meeting-button:hover {
-      transform: scale(1.1); /* Simple scale effect on hover */
-    }
+  .dynamic-words {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    height: 50px;
+  }
 
-    .book-meeting-button,
-.book-meeting-button:hover {
-  color: white !important;  /* Le texte reste toujours blanc */
-}
+  .dynamic-word {
+    height: 50px;
+    display: block;
+    padding-left: 6px;
+    color: white;
+    animation: spin_4991 9s infinite linear;
+  }
+
+  @keyframes spin_4991 {
+    0%, 25% { transform: translateY(0); }
+    33.33%, 50% { transform: translateY(-100%); }
+    58.33%, 75% { transform: translateY(-200%); }
+    83.33%, 100% { transform: translateY(-300%); }
+  }
+
+
+
+
+
+
+
+
+
+
+  .book-meeting-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+
+  .book-meeting-button i {
+    color: white; /* Icône toujours blanche */
+  }
+
+  .book-meeting-button:hover {
+    transform: scale(1.1);
+  }
 
   </style>
 </head>
@@ -356,8 +402,10 @@
     <input type="color" id="color-picker" value="#1e52a8">
   </div>
 
-  <a href="https://calendly.com/benabdelkaderismail123/30min" target="_blank" class="book-meeting-button">Book a Meeting</a>
-
+<!-- Book a Meeting Button with Icon -->
+<a href="https://calendly.com/benabdelkaderismail123/30min" target="_blank" class="book-meeting-button">
+  <i class="far fa-calendar-check"></i> <!-- Icône de calendrier -->
+</a>
 
 <!-- Support Button with Animated Heart -->
 <a href="https://donate.stripe.com/cN27ticV78CBgmYeUV" target="_blank" class="support-button">
@@ -466,6 +514,7 @@ window.addEventListener('load', function() {
 });
 
 
+
     document.getElementById('color-picker').addEventListener('input', function() {
       var chosenColor = this.value;
 
@@ -494,10 +543,15 @@ window.addEventListener('load', function() {
   </script>
 
 
+
   <!-- Tidio Chat Script -->
   <script src="//code.tidio.co/7hp2aasuwzikgjuzl4mkxygwuzrfmfym.js" async></script>
 
+
   
 </body>
+
+
+
 
 </html>
