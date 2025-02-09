@@ -271,7 +271,7 @@
 }
 
 /* Effet au survol */
-.support-button:hover {
+.support-button:hover,   .book-meeting-button:hover {
   transform: scale(1.1);
 }
 
@@ -316,78 +316,98 @@
 }
 
 
-.text-highlight {
-    display: inline-block;
-    cursor: pointer;
-    position: relative;
-    color: #FFFFFF; /* Couleur initiale du texte */
-    transition: color 0.3s;
-    white-space: nowrap; /* Empêche le retour à la ligne */
+
+
+  .book-meeting-button:hover:before, .support-button:hover:before, .social-icon:hover:before {
+    background-color: white;
+    transform: translate(-50%, -50%) scale(1.2);
   }
 
-  .dynamic-text-container {
-    font-size: 45px;
-    font-weight: bold;
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    height: 50px;
-  }
-
-  .dynamic-words {
-    display: inline-block;
-    position: relative;
-    overflow: hidden;
-    height: 50px;
-  }
-
-  .dynamic-word {
-    height: 50px;
-    display: block;
-    padding-left: 6px;
+  .book-meeting-button i, .support-button svg, .social-icon i {
     color: white;
-    animation: spin_4991 9s infinite linear;
+    fill: white;
+    transition: transform 0.3s ease, color 0.3s ease, fill 0.3s ease;
+    position: relative;
+    z-index: 1;
   }
 
-  @keyframes spin_4991 {
-    0%, 25% { transform: translateY(0); }
-    33.33%, 50% { transform: translateY(-100%); }
-    58.33%, 75% { transform: translateY(-200%); }
-    83.33%, 100% { transform: translateY(-300%); }
+  .book-meeting-button:hover i {
+    animation: pulse 0.6s infinite alternate;
+  }
+
+  @keyframes pulse {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.2);
+    }
   }
 
 
 
 
 
-
-
-
-
-
-  .book-meeting-button {
+.book-meeting-button, .support-button {
     position: fixed;
-    top: 20px;
-    right: 20px;
     padding: 12px;
     border: 2px solid white;
     background-color: transparent;
     color: white;
     text-decoration: none;
     font-size: 20px;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
     z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .book-meeting-button i {
-    color: white; /* Icône toujours blanche */
+  .book-meeting-button {
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
   }
 
-  .book-meeting-button:hover {
-    transform: scale(1.1);
+  .support-button {
+    left: 20px;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: transparent !important;
+    border: 3px solid white;
   }
 
+  .book-meeting-button i, .support-button svg {
+    color: white;
+    fill: white;
+    transition: transform 0.3s ease, color 0.3s ease, fill 0.3s ease;
+  }
+
+
+
+  .support-button svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .social-icon i {
+    font-size: 36px;
+    color: white;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .social-icon:hover i {
+    transform: scale(1.2);
+    color: #1e52a8;
+  }
+
+ 
+
+
+  
   </style>
 </head>
 
@@ -418,7 +438,16 @@
   <!-- Ismail Ben Abdelkader section -->
   <div id="social-icons">
     <h1 class="text-highlight">&#8203;&#8203;Ismail Ben Abdelkader&#8203;</h1> <br>
-    <p class="text-highlight">&#8203;&#8203;Technologies for Business&#8203;&#8203</p>
+    <p
+    
+    class="text-highlight" id="rotatingText"
+    
+    class="text-highlight">&#8203;&#8203;Technologies for Business&#8203;&#8203</p>
+
+
+    
+
+    
     <!-- Social icons row -->
     <div class="social-icons-row">
 
@@ -434,17 +463,21 @@
           <i class="fab fa-github"></i>
         </a>
       </div>
+
       <!-- Email icon -->
       <div class="social-icon">
         <a href="mailto:ismail.abkader@gmail.com" class="icon-link" id="email-icon">
-          <i class="fab fa-google"></i>
+          <i class="fas fa-envelope-open-text"></i>
+
         </a>
       </div>
+
+
 <!-- Service Card icon -->
 <div class="social-icon">
   <a href="https://popl.co/card/QWHwoxaR/1/s" target="_blank" class="icon-link" id="service-card-icon">
-    <i class="fas fa-id-card"></i>
-  </a>
+    <i class="fas fa-id-badge"></i>
+
 </div>
 
 
@@ -459,6 +492,41 @@
   <script src="js/app.js"></script>
 
   <script>
+
+
+
+const phrases = [ "Product Owner", "IT Project Manager"," ​​Technologies for Business​"]
+  let index = 0;
+
+  function rotateText() {
+    const rotatingText = document.getElementById("rotatingText");
+
+    // Effet de disparition
+    rotatingText.style.transition = "opacity 0.5s ease-in-out, transform 0.5s ease-in-out, filter 0.5s ease-in-out, border 0.5s ease-in-out";
+    rotatingText.style.opacity = 0;
+    rotatingText.style.transform = "translateY(-20px)";
+    rotatingText.style.filter = "blur(5px)";
+    rotatingText.style.border = "2px solid transparent"; // Bordure transparente
+
+    setTimeout(() => {
+        // Changement du texte
+        rotatingText.textContent = phrases[index];
+        
+        // Effet d'apparition
+        rotatingText.style.opacity = 1;
+        rotatingText.style.transform = "translateY(0)";
+        rotatingText.style.filter = "blur(0)";
+
+        // Passage au texte suivant
+        index = (index + 1) % phrases.length;
+    }, 500); // Temps de l'animation de disparition
+}
+
+  setInterval(rotateText, 9000); // Default transition
+
+
+
+
     // LinkedIn icon
     document.getElementById("linkedin-icon").addEventListener("mouseover", function() {
       this.querySelector("i").classList.add("icon-hover");
@@ -494,6 +562,12 @@
   </script>
 
   <script>
+
+
+
+
+
+
 
 
 document.getElementById('color-picker').addEventListener('input', function() {
@@ -540,6 +614,9 @@ window.addEventListener('load', function() {
         #credit-logo p { border: 2px solid ${chosenColor} !important; }
       `;
     });
+
+
+    
   </script>
 
 
